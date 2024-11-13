@@ -87,16 +87,16 @@ public class LoginServlet extends HttpServlet {
 
                     // Verificar si la contraseña ingresada coincide con la almacenada
                     if (clave.equals(storedPassword)) {
-                        // Inicio de sesión exitoso, creamos la sesión
+                        // Inicio de sesión exitoso
                         HttpSession session = request.getSession();
                         session.setAttribute("usuario", usuario);
-                        response.sendRedirect("Menu.jsp"); // Redirigir a la página de inicio (o dashboard)
+                        response.sendRedirect("Menu.jsp"); // Redirigir al menu
                     } else {
                         // Contraseña incorrecta
                         response.sendRedirect("InicioSesion.jsp?error=Usuario o clave incorrectos");
                     }
                 } else {
-                    // Usuario no encontrado
+                    // Usuario no se encontró
                     response.sendRedirect("InicioSesion.jsp?error=Usuario no encontrado");
                 }
             }
